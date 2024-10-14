@@ -10,22 +10,22 @@ using GabrielC_EquiposLigaPro.Models;
 
 namespace GabrielC_EquiposLigaPro.Controllers
 {
-    public class EquipoesController : Controller
+    public class EquiposController : Controller
     {
         private readonly GabrielC_EquiposLigaProContext _context;
 
-        public EquipoesController(GabrielC_EquiposLigaProContext context)
+        public EquiposController(GabrielC_EquiposLigaProContext context)
         {
             _context = context;
         }
 
-        // GET: Equipoes
+        // GET: Equipos
         public async Task<IActionResult> Index()
         {
             return View(await _context.Equipo.ToListAsync());
         }
 
-        // GET: Equipoes/Details/5
+        // GET: Equipos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,18 +43,18 @@ namespace GabrielC_EquiposLigaPro.Controllers
             return View(equipo);
         }
 
-        // GET: Equipoes/Create
+        // GET: Equipos/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Equipoes/Create
+        // POST: Equipos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Extranjeros,IDEstadio")] Equipo equipo)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Ciudad,Titulos,Extranjeros,IDEstadio")] Equipo equipo)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace GabrielC_EquiposLigaPro.Controllers
             return View(equipo);
         }
 
-        // GET: Equipoes/Edit/5
+        // GET: Equipos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -81,12 +81,12 @@ namespace GabrielC_EquiposLigaPro.Controllers
             return View(equipo);
         }
 
-        // POST: Equipoes/Edit/5
+        // POST: Equipos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Extranjeros,IDEstadio")] Equipo equipo)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Ciudad,Titulos,Extranjeros,IDEstadio")] Equipo equipo)
         {
             if (id != equipo.Id)
             {
@@ -116,7 +116,7 @@ namespace GabrielC_EquiposLigaPro.Controllers
             return View(equipo);
         }
 
-        // GET: Equipoes/Delete/5
+        // GET: Equipos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -134,7 +134,7 @@ namespace GabrielC_EquiposLigaPro.Controllers
             return View(equipo);
         }
 
-        // POST: Equipoes/Delete/5
+        // POST: Equipos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
